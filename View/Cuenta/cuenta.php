@@ -23,6 +23,18 @@ if ($email) {
         $nameN = $row["nameN"];
     }
 }
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
+    if ($email) {
+        $conexion = new PDO("mysql:host=localhost;dbname=beatpass", "root", "");
+        $stmt = $conexion->prepare("DELETE FROM usuarios WHERE email = ?");
+        $stmt->execute([$email]);
+
+        session_destroy(); 
+        header("Location: ../InicioSesion/index1.html"); 
+        exit();
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -73,6 +85,12 @@ if ($email) {
                 <form action="../../Controler/Controlador.php" method="POST">
                     <button type="submit" name="logout" id="logout" class="button">Cerrar Sesión</button>
                 </form>
+
+                <form method="POST" onsubmit="return confirm('¿Estás seguro de que quieres eliminar tu cuenta?');">
+                <button type="submit" name="eliminar" class="button btn-danger">Eliminar Cuenta</button>
+                </form>
+
+              
             </div>
 
         </article>
