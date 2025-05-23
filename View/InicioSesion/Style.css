@@ -1,0 +1,306 @@
+/* VARIABLES */
+:root {
+    --Color-principal: #1c1c1c;
+    --Color-secundario: #494979;
+    --Color-secundario-flojo: #6f6dbe;
+    --Color-letras: rgb(255, 255, 255);
+    --fuente-titulo: 'Bebas Neue', sans-serif;
+    --fuente-subtitulo: 'Oswald', sans-serif;
+    --fuente-info: 'Montserrat', sans-serif;
+
+    /* Tamaños base (por defecto móvil) */
+    --font-titulo: 2rem;
+    --font-subtitulo: 1.5rem;
+    --font-normal: 1rem;
+}
+
+/* TITULOS */
+.titulo {
+    font-family: var(--fuente-titulo);
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.subtitulo {
+    font-family: var(--fuente-subtitulo);
+    font-size: 1.5rem;
+}
+
+.info {
+    font-family: var(--fuente-info);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* =======================================
+   ESTILOS GENERALES DEL BODY
+   ======================================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--Color-principal); /* Usamos variable */
+    color: var(--Color-letras); /* Color de letras blanco */
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Alto mínimo de la pantalla */
+    display: flex;
+    flex-direction: column; /* Para poner header arriba, main en medio y footer abajo */
+}
+
+/* =======================================
+   MAIN (contenido principal)
+   ======================================= */
+main {
+    flex: 1;
+    margin-top: 3rem; /* Separación para no tapar el contenido con el header */
+    width: 100%;
+    padding: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor de formulario y título */
+.container {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre elementos */
+}
+
+/* =======================================
+   LEFT SECTION (sección de título)
+   ======================================= */
+.left-section {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* =======================================
+   FORMULARIO
+   ======================================= */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.input-group label {
+    font-family: var(--font-links); /* Using Oswald for labels */
+    font-size: var(--font-size-normal);
+    color: var(--color-text-muted);
+    margin-bottom: var(--padding-small);
+    font-weight: 500;
+}
+
+.input-group input {
+    padding: 0.85rem var(--padding-standard);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-small);
+    background-color: var(--color-input-background);
+    color: var(--color-on-background);
+    font-family: var(--font-primary);
+    font-size: var(--font-size-normal);
+    transition: border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--color-input-border-focus);
+    box-shadow: 0 0 0 3px var(--color-shadow-hover);
+}
+
+/* BOTONES */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--padding-standard);
+    margin-top: var(--padding-standard);
+}
+
+.buttons button, .buttons a button { /* Target both direct buttons and buttons inside links */
+    background-color: var(--color-primary);
+    color: var(--color-on-primary);
+    border: none;
+    border-radius: var(--border-radius-medium);
+    padding: 0.85rem var(--padding-large);
+    font-family: var(--font-links);
+    font-size: var(--font-size-normal);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease, transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    width: 100%; /* Make buttons full width */
+    text-align: center;
+}
+
+.buttons button:hover,
+.buttons a button:hover {
+    background-color: var(--color-primary-variant);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-shadow-hover);
+}
+
+/* Efecto hover cuando pasamos el ratón */
+.buttons button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.4rem 1rem #874ac0ad;
+}
+
+.buttons button {
+    width: 100%;
+}
+/* =======================================
+   LINKS
+   ======================================= */
+a {
+    text-decoration: none; /* Quitamos subrayado de los enlaces */
+}
+
+/* =======================================
+   FOOTER (pie de página)
+   ======================================= */
+footer {
+    width: 100%;
+    background-color: var(--Color-secundario);
+    color: var(--Color-letras);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+/* =======================================
+   RESPONSIVE DESIGN (pantallas grandes)
+   ======================================= */
+/*
+Explicación: primero adaptamos para pantallas pequeñas (por defecto)
+y después hacemos los cambios solo para pantallas grandes (mayores a 768px)
+*/
+@media (min-width: 426px) and (max-width: 768px) {
+    :root {
+        --font-titulo: 3rem;
+        --font-subtitulo: 2rem;
+        --font-normal: 1.2rem;
+    }
+
+    /* TITULOS */
+    .titulo{
+        font-size: var(--font-titulo);
+    }
+ 
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+   
+    .info {
+        font-size: var(--font-normal);
+    }
+    
+    /* Cambiamos el contenedor para que esté en fila */
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 80%;
+        margin-top: 5rem;
+    }
+
+    /* Alineamos el texto del título a la izquierda */
+    .left-section {
+        text-align: left;
+    }
+    
+    /* Aumentamos el tamaño del título */
+    .left-section h1 {
+        font-size: 6rem;
+        white-space: pre-line; /* Permitimos saltos de línea automáticos */
+    }
+
+    /* Ajustamos el formulario al nuevo ancho */
+    form {
+        display: flex;
+        max-width: 100%;
+    }    
+
+    /* Botones en fila */
+    .buttons {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+}
+
+@media (max-width: 745px) {
+    #IrRegister, #Login {
+        min-height: 5rem;
+
+    }
+}
+
+@media (min-width: 769px) {
+    :root {
+        --font-titulo: 4rem;
+        --font-subtitulo: 3.5rem;
+        --font-normal: 1.8rem;
+    }
+
+    /* TITULOS */
+    .titulo{
+        font-size: var(--font-titulo);
+    }
+ 
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+   
+    .info {
+        font-size: var(--font-normal);
+    }
+    
+    /* Cambiamos el contenedor para que esté en fila */
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        max-width: 40%;
+        margin-top: 2rem;
+    }
+
+    /* Alineamos el texto del título a la izquierda */
+    .left-section {
+        text-align: left;
+    }
+    
+    /* Aumentamos el tamaño del título */
+    .left-section h1 {
+        margin-right: 4rem;
+        font-size: 6rem;
+        white-space: pre-line; /* Permitimos saltos de línea automáticos */
+    }
+
+    /* Ajustamos el formulario al nuevo ancho */
+    form {
+        display: flex;
+        max-width: 100%;
+    }    
+
+    /* Botones en fila */
+    .buttons button, a{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-top: 0.2rem;
+        align-items: center;
+        justify-content: space-around;
+    }
+}

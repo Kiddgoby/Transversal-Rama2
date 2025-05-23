@@ -1,0 +1,167 @@
+/* VARIABLES */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-links: 'Oswald', sans-serif;
+
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
+    --color-primary: #7E57C2;
+    --color-primary-variant: #5E35B1;
+    --color-secondary: #03DAC6;
+    --color-on-background: #E0E0E0;
+    --color-on-surface: #FFFFFF;
+    --color-on-primary: #FFFFFF;
+    --color-border: #333333;
+    --color-input-background: #2A2A2A; /* Slightly lighter than surface for inputs */
+    --color-input-border-focus: var(--color-primary);
+    --color-shadow: rgba(0, 0, 0, 0.2);
+    --color-shadow-hover: rgba(126, 87, 194, 0.4);
+    --color-text-muted: #B0B0B0;
+
+    --padding-small: 0.5rem;
+    --padding-standard: 1rem;
+    --padding-large: 1.5rem;
+    --padding-xlarge: 2rem;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --transition-speed: 0.3s;
+
+    --font-size-normal: 1rem;
+    --font-size-large: 1.75rem;
+    --font-size-xlarge: 2.5rem; 
+}
+
+/* TITULOS */
+.titulo {
+    font-family: var(--font-size-xlarge);
+    font-size: 2rem;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.subtitulo {
+    font-family: var(--font-size-large);
+    font-size: 1.5rem;
+}
+
+.info {
+    font-family: var(--font-size-normal);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* BASE */
+body {
+    background-color: var(--color-background);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-on-surface);
+    font-family: var(--font-display);
+}
+
+/* BOTÓN DEFECTO */
+.botonDefecto {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.botonDefecto:hover {
+    background-color: var(--color-primary-variant);
+}
+
+.card-title {
+    font-size: 1.5rem;
+}
+
+.card-text {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+}
+
+.card-evento {
+    background-color: var(--color-surface); /* equivalente a bg-dark */
+    color: var(--color-on-surface);
+    height: 100%;
+    border: none;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+
+/* pantallas tablet */
+/* Tablet */
+@media (min-width: 426px) and (max-width: 768px) {
+    :root {
+        --font-titulo: 3rem;
+        --font-subtitulo: 2rem;
+        --font-normal: 1.2rem;
+    }
+
+/* TITULOS */
+    .titulo{
+        font-size: var(--font-titulo);
+    }
+ 
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+   
+    .info {
+        font-size: var(--font-normal);
+    }
+    
+    .left{
+        display: flex;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 769px) {
+    :root {
+        --font-titulo: 4rem;
+        --font-subtitulo: 3.5rem;
+        --font-normal: 1.8rem;
+    }
+
+    /* TITULOS */
+    .titulo{
+        font-size: var(--font-titulo);
+    }
+ 
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+   
+    .info {
+        font-size: var(--font-normal);
+    }
+
+    .boton {
+        height: 100px; /* Ajusta para que siempre se vea bien el nombre */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,242 @@
+/* ============================= */
+/* VARIABLES Y TIPOGRAFÍA        */
+/* ============================= */
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-display: 'Bebas Neue', sans-serif;
+    --font-links: 'Oswald', sans-serif;
+
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
+    --color-primary: #7E57C2;
+    --color-primary-variant: #5E35B1;
+    --color-secondary: #03DAC6;
+    --color-on-background: #E0E0E0;
+    --color-on-surface: #FFFFFF;
+    --color-on-primary: #FFFFFF;
+    --color-border: #333333;
+    --color-input-background: #2A2A2A; /* Slightly lighter than surface for inputs */
+    --color-input-border-focus: var(--color-primary);
+    --color-shadow: rgba(0, 0, 0, 0.2);
+    --color-shadow-hover: rgba(126, 87, 194, 0.4);
+    --color-text-muted: #B0B0B0;
+
+    --padding-small: 0.5rem;
+    --padding-standard: 1rem;
+    --padding-large: 1.5rem;
+    --padding-xlarge: 2rem;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+    --transition-speed: 0.3s;
+
+    --font-size-normal: 1rem;
+    --font-size-large: 1.75rem;
+    --font-size-xlarge: 2.5rem; 
+}
+
+/* TITULOS */
+.titulo {
+    font-family: var(--font-normal);
+    font-size: var(--font-size-xlarge);
+    text-align: center;
+    margin: 20px 0;
+}
+
+.subtitulo {
+    font-family: var(--font-display);
+    font-size: var(--font-size-large);
+}
+
+.info {
+    font-family: var(--font-links);
+    font-size: var(--font-size-normal);
+    line-height: 1.5;
+}
+
+/* ============================= */
+/* ESTILOS GENERALES            */
+/* ============================= */
+body {
+    background-color: var(--color-background);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-on-surface);
+    font-family: var(--font-display);
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* ============================= */
+/* MAIN - ESTRUCTURA PRINCIPAL  */
+/* ============================= */
+main.pagina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* PERFIL */
+.perfil {
+    background-color: var(--color-input-background);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 2px 8px var(--color-border);
+}
+
+.perfil .principio img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    border: 0.180rem solid var(--color-primary);
+    margin: 1rem 0;
+}
+
+/* Botones y etiquetas estilo botón */
+.perfil .button,
+#logout,
+button {
+    background-color: var(--color-primary-variant);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: var(--font-display);
+    cursor: pointer;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-align: center;
+}
+
+.perfil .button:hover,
+#logout:hover,
+button:hover {
+    background-color: var(--color-primary);
+}
+
+#nuevaImagen {
+    display: none;
+}
+
+.decorativa{
+    display: none;
+}
+
+/* ============================= */
+/* FOOTER                       */
+/* ============================= */
+footer {
+    width: 100%;
+    background-color: var(--color-surface);
+    color: var(--color-primary);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+/* ============================= */
+/* MEDIA QUERIES: TABLET        */
+/* ============================= */
+@media (min-width: 426px) and (max-width: 768px) {
+    :root {
+        --font-titulo: 3rem;
+        --font-subtitulo: 2rem;
+        --font-normal: 1.2rem;
+    }
+
+    .titulo {
+        font-size: var(--font-titulo);
+    }
+
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+
+    .info {
+        font-size: var(--font-normal);
+    }
+}
+
+/* ============================= */
+/* MEDIA QUERIES: ESCRITORIO    */
+/* ============================= */
+@media (min-width: 769px) {
+    :root {
+        --font-titulo: 4rem;
+        --font-subtitulo: 3rem;
+        --font-normal: 1.5rem;
+    }
+
+    .titulo {
+        font-size: var(--font-titulo);
+    }
+
+    .subtitulo {
+        font-size: var(--font-subtitulo);
+    }
+
+    .info {
+        font-size: var(--font-normal);
+    }
+
+    main.pagina {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .perfil {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: 1000px;
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
+    }
+
+    .perfil .principio {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .perfil .principio img {
+        max-width: 200px;
+        width: 100%;
+        height: auto;
+    }
+    .infoPerfil{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+    }
+    .posibilidades{
+        width: 52%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .perfil .datos {
+        flex: 1 1 auto;
+    }
+}
