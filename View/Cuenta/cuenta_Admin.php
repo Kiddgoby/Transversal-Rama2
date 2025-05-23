@@ -74,6 +74,10 @@ if ($email) {
                     <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Perfil</button>
                 </a>
 
+                <a href="../">
+                    <button type="submit" name="crear" id="crear" class="button">Crear Evento</button>
+                </a>
+
                 <form action="../../Controler/Controlador.php" method="POST">
                     <button type="submit" name="logout" id="logout" class="button">Cerrar Sesión</button>
                 </form>
