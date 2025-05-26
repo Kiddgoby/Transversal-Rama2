@@ -42,7 +42,7 @@
     </header>
 
     <body>
-<form action="../../Controler/ControladorEvento.php" method="POST">
+<form action="../../Controler/ControladorEvento.php" method="POST" enctype="multipart/form-data">
     <label>Fecha:</label>
     <input type="date" name="fecha" required><br>
 
@@ -56,7 +56,7 @@
     <input type="text" name="tipo_evento"><br>
 
     <label>Imagen:</label>
-    <input type="file" name="imagen" accept="image/*"><br>
+    <input type="file" name="imagen" />
 
     <button type="submit" name="crear_evento">Crear evento</button>
 </form>

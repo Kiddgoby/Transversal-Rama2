@@ -34,28 +34,39 @@ class EventoController {
         $tipo_evento = $_POST["tipo_evento"];
 
         $imagenNombre = null;
+
         if (isset($_FILES["imagen"]) && $_FILES["imagen"]["error"] == 0) {
             $imagenTmp = $_FILES["imagen"]["tmp_name"];
             $imagenNombre = basename($_FILES["imagen"]["name"]);
-            $rutaDestino = "../uploads_eventos/" . $imagenNombre;
-
-            if (!file_exists("../uploads_eventos")) {
-                mkdir("../uploads_eventos", 0777, true);
+            $rutaDestino = "../uploads/" . $imagenNombre;
+            echo __LINE__;
+            
+            if (!file_exists("../uploads")) {
+                if (!mkdir("../uploads", 0777, true)) {
+                    echo "Error al crear el directorio para las imágenes.";
+                    return false;
+                }
             }
-
+            echo __LINE__;
+            
             if (!move_uploaded_file($imagenTmp, $rutaDestino)) {
                 echo "Error al subir la imagen.";
                 return false;
+            }else{
+                echo "OK al subir la imagen.";
+                
             }
         }
-
+        echo __LINE__;
+        
         $query = "INSERT INTO eventos (fecha, artista, lugar, tipo_evento, imagen) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($query);
+        echo __LINE__;
 
         try {
             if ($stmt->execute([$fecha, $artista, $lugar, $tipo_evento, $imagenNombre])) {
-                header("Location: ../View/eventos/eventos.php");
-                return true;
+            //     header("Location: ../View/eventos/eventos.php");
+            //     return true;
             }
         } catch (PDOException $e) {
             echo "Error al crear evento: " . $e->getMessage();
