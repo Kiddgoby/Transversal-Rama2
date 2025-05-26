@@ -46,6 +46,13 @@ try {
                 <?php if ($evento["imagen"]): ?>
                     <img src="../../uploads_eventos/<?= htmlspecialchars($evento["imagen"]) ?>" alt="Imagen del evento">
                 <?php endif; ?>
+                <form action="../../Controler/ControladorEventos.php" method="POST">
+                    <button type="submit" name="eliminar" id="eliminar" class="button">Eliminar</button>
+                </form>
+                <form action="../../Controller/ControladorEvento.php" method="POST">
+                    <input type="hidden" name="id" value="<?= $evento["id"] ?>">
+                    <button type="submit" name="editar">editar</button>
+                </form>
             </div>
         <?php endforeach; ?>
     <?php else: ?>

@@ -70,11 +70,11 @@ if ($email) {
                 </a>
             
                 
-                <a href="../">
+                <a href="../Administrador/modificarEventos.php">
                     <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Perfil</button>
                 </a>
 
-                <a href="../">
+                <a href="../Administrador/CrearEvento.html">
                     <button type="submit" name="crear" id="crear" class="button">Crear Evento</button>
                 </a>
 
