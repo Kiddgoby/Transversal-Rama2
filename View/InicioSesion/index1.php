@@ -53,7 +53,7 @@
 
                 <div class="buttons">
                     <button type="submit" name="Login" id="Login">Iniciar Sesión</button> <!-- Eliminada clase button, estilo general para buttons button -->
-                    <a href="../Registro/Registro.html">
+                    <a href="../Registro/Registro.php">
                         <button type="button" id="IrRegister" name="IrRegister" class="button-secondary">Registrarme</button> <!-- Clase para estilo secundario -->
                     </a>
                 </div>

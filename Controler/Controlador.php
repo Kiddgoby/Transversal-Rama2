@@ -64,7 +64,7 @@ class UserController {
         } else {
             $_SESSION["logged"] = false;
             $_SESSION["Login_Error"] = "Email or password are wrong";
-            header("Location: ../View/InicioSesion/index1.html");
+            header("Location: ../View/InicioSesion/index1.php");
             return false;
         }
     }
@@ -72,7 +72,7 @@ class UserController {
     public function logout(): void {
         session_unset();
         session_destroy();
-        header("Location: ../View/InicioSesion/index1.html");
+        header("Location: ../View/InicioSesion/index1.php");
         exit();
     }
 
@@ -113,7 +113,7 @@ class UserController {
         try {
             if ($stmt->execute([$nameN, $email, $password, $imagenNombre])) {
                 $_SESSION["Singed"] = true;
-                header("Location: ../View/InicioSesion/index1.html");
+                header("Location: ../View/InicioSesion/index1.php");
                 return true;
             }
         } catch (PDOException $e) {

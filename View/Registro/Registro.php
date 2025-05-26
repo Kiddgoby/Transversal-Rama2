@@ -42,7 +42,7 @@
             
             <div class="buttons">
                 <button type="submit" name="Singup" id="Singup" class="button">Registrarse</button>
-                <a href="../InicioSesion/index1.html" class="button">
+                <a href="../InicioSesion/index1.php" class="button">
                     <button type="button" id="IrInicio" name="IrInicio"> ¿ya tienes cuenta?Iniciar Sesión</button>
                 </a>
             </div>

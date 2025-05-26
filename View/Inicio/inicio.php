@@ -47,7 +47,7 @@
         <div class="card-body">
             <h5 class="card-title">Quevedo</h5>
             <p class="card-text">Prepárate para disfrutar el mejor concierto de tu vida.</p>
-            <a href="../pagina_compra/info_compra.html" class="botonDefecto">Saber más</a>
+            <a href="../pagina_compra/info_compra.php" class="botonDefecto">Saber más</a>
         </div>
     </div>
 <!------------------------------------------------------>
@@ -56,7 +56,7 @@
         <div class="card-body">
             <h5 class="card-title">YUNGBEEF</h5>
             <p class="card-text">El nuevo álbum en vivo. ¡No te lo puedes perder!</p>
-            <a href="../pagina_compra/info_compra.html" class="botonDefecto">Saber más</a>
+            <a href="../pagina_compra/info_compra.php" class="botonDefecto">Saber más</a>
          </div>
     </div>
 <!------------------------------------------------------>

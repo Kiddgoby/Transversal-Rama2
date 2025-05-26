@@ -65,16 +65,16 @@ if ($email) {
             </div>
             
             <div class="posibilidades">
-                <a href="../Inicio/inicio.html">
-                    <button type="submit" name="misEventos" id="misEventos" class="button">Administracion de eventos</button>
+                <a href="../Cuenta/cuentaUpdateDatos.php">
+                    <button type="submit" name="update" id="update" class="button">Modificar Perfil</button>
                 </a>
             
                 
-                <a href="../">
-                    <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Perfil</button>
+                <a href="../Administrador/modificarEventos.php">
+                    <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Eventos</button>
                 </a>
 
-                <a href="../">
+                <a href="../Administrador/CrearEvento.php">
                     <button type="submit" name="crear" id="crear" class="button">Crear Evento</button>
                 </a>
 
