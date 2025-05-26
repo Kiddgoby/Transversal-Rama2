@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
         $stmt->execute([$email]);
 
         session_destroy(); 
-        header("Location: ../InicioSesion/index1.html"); 
+        header("Location: ../InicioSesion/index1.php"); 
         exit();
     }
 }
@@ -75,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
             </div>
             
             <div class="posibilidades">
-                <a href="../Inicio/inicio.html">
+                <a href="../Inicio/inicio.php">
                     <button type="submit" name="misEventos" id="misEventos" class="button">Mis Eventos</button>
                 </a>
             

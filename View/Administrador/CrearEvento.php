@@ -19,7 +19,7 @@
     <header>
         <div class="left">
             <div class="izquierda">
-                <a href="../Inicio/inicio.html">
+                <a href="../Inicio/inicio.php">
                     <img src="../logoBilleteArnau.png" alt="">
                 </a>    
             </div>
@@ -28,16 +28,16 @@
         <div class="rigth">
             <div class="idioma-selector">
                 <select onchange="window.location.href=this.value">
-                    <option value="../Inicio/inicio.html" selected>Español</option>
-                    <option value="../Inicio/inicio_cat.html">Català</option>
-                    <option value="../Inicio/inicio_en.html">English</option>
+                    <option value="../Inicio/inicio.php" selected>Español</option>
+                    <option value="../Inicio/inicio_cat.php">Català</option>
+                    <option value="../Inicio/inicio_en.php">English</option>
                 </select>
             </div>              
             <!-- Posivilidades dentro de la web -->
-            <a href="../eventos/eventos.html">Eventos</a>
-            <a href="../lugares/Lugares.html">Lugares</a>
+            <a href="../eventos/eventos.php">Eventos</a>
+            <a href="../lugares/Lugares.php">Lugares</a>
             <a href="../Cuenta/cuenta.php">Cuenta</a>  
-            <a href="../Inicio/inicio.html">Inicio</a>      
+            <a href="../Inicio/inicio.php">Inicio</a>      
         </div>
     </header>
 

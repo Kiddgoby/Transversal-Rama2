@@ -74,7 +74,7 @@ if ($email) {
                     <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Eventos</button>
                 </a>
 
-                <a href="../Administrador/CrearEvento.html">
+                <a href="../Administrador/CrearEvento.php">
                     <button type="submit" name="crear" id="crear" class="button">Crear Evento</button>
                 </a>
 

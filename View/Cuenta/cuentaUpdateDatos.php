@@ -5,7 +5,7 @@ require_once "../../Controler/Controlador.php";
 $email = $_SESSION["email"] ?? null;
 
 if (!$email) {
-    header("Location: ../InicioSesion/index1.html");
+    header("Location: ../InicioSesion/index1.php");
     exit;
 }
 
