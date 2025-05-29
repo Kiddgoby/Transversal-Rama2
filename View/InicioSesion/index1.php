@@ -20,6 +20,7 @@
     <!-- Enlace a nuestro archivo de estilos personalizados -->
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="../headerComun.css">
+    <link rel="stylesheet" href="../FooterComun.css">
 
     <!-- Enlace a las fuentes externas de Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
@@ -63,8 +64,7 @@
 
     <!-- PIE DE PÁGINA -->
     <br>
-    <?php include '../footer.php'; ?>
-    
+    <?php include __DIR__ . '/../footer.php'; ?>    
 </body>
 
 </html>
