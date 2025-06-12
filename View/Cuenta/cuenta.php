@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../Controler/Controlador.php";  
+require_once "../../Controler/UserController.php";  
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -9,11 +9,12 @@ if (session_status() === PHP_SESSION_NONE) {
 $email = $_SESSION["email"] ?? null;
 $imagen = null;
 $nameN = null;
+$phone = null;
 
 if ($email) {
     $userController = new UserController();
 
-    $query = "SELECT nameN, imagen FROM usuarios WHERE email = ?";
+    $query = "SELECT nameN,phone, imagen FROM usuarios WHERE email = ?";
     $stmt = $userController->getConnection()->prepare($query);
     $stmt->execute([$email]);
     $row = $stmt->fetch();
@@ -21,6 +22,7 @@ if ($email) {
     if ($row) {
         $imagen = $row["imagen"];
         $nameN = $row["nameN"];
+        $phone = $row["phone"];
     }
 }
 
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
         <article class="perfil">
             <div class="infoPerfil">
                 <div class="principio">
-                    <h2 class="titulo"><?= htmlspecialchars($nameN) ?></h2>
+                    <h2 class="titulo"><?= htmlspecialchars($nameN, $phone) ?></h2>
 
                     <?php if (!empty($imagen)): ?>
                         <img src="../../uploads/<?= htmlspecialchars($imagen) ?>" alt="Imagen de perfil" id="imagenPerfil" style="width: 150px; height: 150px; border-radius: 50%;">
@@ -82,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["eliminar"])) {
                 <a href="../Cuenta/cuentaUpdateDatos.php">
                     <button type="submit" name="Modificar" id="Modificar" class="button">Modificar Perfil</button>
                 </a>
-                <form action="../../Controler/Controlador.php" method="POST">
+                <form action="../../Controler/UserController.php" method="POST">
                     <button type="submit" name="logout" id="logout" class="button">Cerrar Sesión</button>
                 </form>
 

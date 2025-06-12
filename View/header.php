@@ -18,7 +18,7 @@
             </select>
         </div>
         <!-- Posivilidades dentro de la web -->
-        <a href="../eventos/eventos.php">Eventos</a>
+        <a href="../eventos/Eventos.php">Eventos</a>
         <a href="../lugares/Lugares.php">Lugares</a>
         <!-- <button onclick="cuentaBtn()" name="cuenta" id="cuenta">cuenta prueba</button> Eliminada clase button, estilo general para buttons button -->
         <a href="#" onclick="cuentaBtn()" id="cuenta">Cuenta</a>

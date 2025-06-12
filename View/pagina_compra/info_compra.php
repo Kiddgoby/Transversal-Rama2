@@ -56,7 +56,7 @@
 
         <!-- Formulario de información personal -->
         <section class="info">
-            <form action="../../Controler/Controlador.php" method="POST">
+            <form action="../../Controler/UserController.php" method="POST">
                 <div class="input-group">
                     <label for="text">Nombre:</label>
                     <input type="nombre" id="nombre" name="nombre" required>

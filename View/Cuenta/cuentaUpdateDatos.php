@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../Controler/Controlador.php";
+require_once "../../Controler/UserController.php";
 
 $email = $_SESSION["email"] ?? null;
 
@@ -19,10 +19,11 @@ $imagen = null;
 // Solo procesar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $nameN = trim($_POST["nameN"]);
+    $phone = trim($_POST["phone"]);
     $password = trim($_POST["password"]) ?: null;
     $imagen = $_FILES["imagen"] ?? null;
 
-    if ($userController->update($email, $nameN, $password, $imagen)) {
+    if ($userController->update($email, $nameN, $phone,$password, $imagen)) {
         $_SESSION["imagen"] = $imagen["name"] ?? $_SESSION["imagen"];
         header("Location: ../Cuenta/cuenta.php");
         exit;
@@ -56,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <form action="procesarUpdate.php" method="post" enctype="multipart/form-data">
             <label for="nameN">Nombre de usuario:</label>
             <input type="text" name="nameN" id="nameN" value="<?= htmlspecialchars($nameN) ?>" required>
+            <label for="phone">Numero de telefono:</label>
+            <input type="tel" name="phone" id="phone" value="<?= htmlspecialchars($phone) ?>" required>
 
             <label for="email">Correo electrónico (no editable):</label>
             <input type="email" name="email" id="email" value="<?= htmlspecialchars($email) ?>" readonly>

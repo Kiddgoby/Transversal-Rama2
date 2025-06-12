@@ -1,7 +1,9 @@
 <?php
 
 class Usuario {
+
     private $correo;
+    private $phone;
     private $password;
     
     // Credenciales específicas para comparar

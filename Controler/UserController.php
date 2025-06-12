@@ -19,10 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } elseif (isset($_POST["update"])) {
         $email = $_SESSION["email"] ?? null;
         $nameN = trim($_POST["nameN"]);
+        $phone = trim($_POST["phone"]);
         $password = trim($_POST["password"]) ?: null;
         $imagen = $_FILES["imagen"] ?? null;
 
-        $UserController->update($email, $nameN, $password, $imagen);
+        $UserController->update($email, $nameN, $phone, $password, $imagen);
         echo __LINE__;
     }
 }
@@ -48,8 +49,9 @@ class UserController {
     public function login(): bool {
         $email = trim($_POST["email"]);
         $password = trim($_POST["password"]);
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-        $query = "SELECT nameN, email, contrasena FROM usuarios WHERE email = ? AND contrasena = ?";
+        $query = "SELECT nameN, phone,  email, contrasena FROM usuarios WHERE email = ? AND contrasena = ?";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$email, $password]);
         $row = $stmt->fetch();
@@ -57,6 +59,7 @@ class UserController {
         if ($row) {
             $_SESSION["logged"] = true;
             $_SESSION["nameN"] = $row["nameN"];
+            $_SESSION["phone"] = $row["phone"];
             $_SESSION["email"] = $row["email"];
             $_SESSION["password"] = $row["contrasena"];
             header("Location: ../View/Inicio/inicio.php");
@@ -78,6 +81,7 @@ class UserController {
 
     public function singup(): bool {
         $nameN = trim($_POST["nameN"]);
+        $phone = trim($_POST["phone"]);
         $email = trim($_POST["email"]);
         $password = trim($_POST["password"]);
         $cpassword = trim($_POST["cpassword"]);
@@ -107,11 +111,11 @@ class UserController {
             }
         }
 
-        $query = "INSERT INTO usuarios (nameN, email, contrasena, imagen) VALUES (?, ?, ?, ?)";
+        $query = "INSERT INTO usuarios (nameN, phone, email, contrasena, imagen) VALUES (?, ?, ?, ?, ?)";
         $stmt = $this->pdo->prepare($query);
 
         try {
-            if ($stmt->execute([$nameN, $email, $password, $imagenNombre])) {
+            if ($stmt->execute([$nameN, $phone, $email, $password, $imagenNombre])) {
                 $_SESSION["Singed"] = true;
                 header("Location: ../View/InicioSesion/index1.php");
                 return true;
@@ -132,9 +136,11 @@ class UserController {
         exit();
     }
 
-    public function update(string $email, string $nameN, ?string $password, ?array $imagen): void {
+    public function update(string $email, string $nameN, string $phone, ?string $password, ?array $imagen): void {
         $sql = "UPDATE usuarios SET nameN = ?";
+         $sql = "UPDATE usuarios SET phone = ?";
         $params = [$nameN];
+        $params = [$phone];
 
         if (!empty($password)) {
             $sql .= ", contrasena = ?";

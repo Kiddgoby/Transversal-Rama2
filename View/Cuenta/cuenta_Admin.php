@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../Controler/Controlador.php";  
+require_once "../../Controler/UserController.php";  
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
@@ -12,11 +12,12 @@ if(isset($_GET['email'])){
 }
 $imagen = null;
 $nameN = null;
+$phone = null;
 
 if ($email) {
     $userController = new UserController();
 
-    $query = "SELECT nameN, imagen FROM usuarios WHERE email = ?";
+    $query = "SELECT nameN, phone, imagen FROM usuarios WHERE email = ?";
     $stmt = $userController->getConnection()->prepare($query);
     $stmt->execute([$email]);
     $row = $stmt->fetch();
@@ -24,6 +25,7 @@ if ($email) {
     if ($row) {
         $imagen = $row["imagen"];
         $nameN = $row["nameN"];
+        $phone = $row["phone"];
     }
 }
 ?>
@@ -78,7 +80,7 @@ if ($email) {
                     <button type="submit" name="crear" id="crear" class="button">Crear Evento</button>
                 </a>
 
-                <form action="../../Controler/Controlador.php" method="POST">
+                <form action="../../Controler/UserController.php" method="POST">
                     <button type="submit" name="logout" id="logout" class="button">Cerrar Sesión</button>
                 </form>
             </div>

@@ -21,11 +21,14 @@
     <!-- form -->
     <article>
         <h1 class="titulo">Crea tu cueanta</h1>
-        <form action="../../Controler/Controlador.php" method="POST" enctype="multipart/form-data">
+        <form action="../../Controler/UserController.php" method="POST" enctype="multipart/form-data">
             <h3 class="info">Únete a Beat Pass y no te pierdas los mejores eventos.</h3>
         
             <div class="input-group">
                 <input type="text" id="nameN" name="nameN" placeholder="Elige un nombre de usuario"><br><br>
+            </div>
+            <div class="input-group">
+                <input type="tel" id="phone" name="phone" placeholder="(XXX)-XXX-XXXX" pattern="^\(\d{3}\)[\s\.-]\d{3}[\s\.-]\d{4}$" placeholder="Elige un numero de telefono"><br><br>
             </div>
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="tu@gmail.com"><br><br>

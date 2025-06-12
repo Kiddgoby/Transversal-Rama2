@@ -41,7 +41,7 @@
             </div>
 
             <!-- Formulario de Inicio de Sesión -->
-            <form action="../../Controler/Controlador.php" method="POST">
+            <form action="../../Controler/UserController.php" method="POST">
                 <div class="input-group">
                     <label for="email">Correo electrónico:</label> <!-- Eliminadas clases info y subtitulo, el estilo viene de .input-group label -->
                     <input type="email" id="email" name="email" placeholder="tu@email.com" required>
@@ -61,10 +61,7 @@
             </form>
         </div>
     </main>
-
-    <!-- PIE DE PÁGINA -->
-    <br>
-    <?php include __DIR__ . '/../footer.php'; ?>    
+  
 </body>
 
 </html>

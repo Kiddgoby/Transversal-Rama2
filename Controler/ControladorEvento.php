@@ -65,7 +65,7 @@ class EventoController {
 
         try {
             if ($stmt->execute([$fecha, $artista, $lugar, $tipo_evento, $imagenNombre])) {
-            //     header("Location: ../View/eventos/eventos.php");
+            //     header("Location: ../View/eventos/Eventos.php");
             //     return true;
             }
         } catch (PDOException $e) {
@@ -75,12 +75,30 @@ class EventoController {
         return false;
     }
 
+    public function leer():void{
+        try {
+    $pdo = new PDO("mysql:host=localhost;dbname=beatpass", "root", "", [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+
+    $stmt = $pdo->query("SELECT * FROM eventos ORDER BY fecha DESC");
+    $eventos = $stmt->fetchAll();
+} catch (PDOException $e) {
+    die("Error en la conexión: " . $e->
+    getMessage());
+}
+   }
+
+
     public function eliminar($id): void {
         $query = "DELETE FROM eventos WHERE id = ?";
         $stmt = $this->pdo->prepare($query);
         $stmt->execute([$id]);
+        session_start();
+    $_SESSION['mensaje'] = "Evento eliminado correctamente";
 
-        header("Location: ../View/eventos/eventos.php");
+        header("Location: ../View/eventos/Eventos.php");
         exit();
     }
 }

@@ -8,7 +8,8 @@ try {
     $stmt = $pdo->query("SELECT * FROM eventos ORDER BY fecha DESC");
     $eventos = $stmt->fetchAll();
 } catch (PDOException $e) {
-    die("Error en la conexión: " . $e->getMessage());
+    die("Error en la conexión: " . $e->
+    getMessage());
 }
 ?>
 

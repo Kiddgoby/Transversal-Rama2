@@ -34,7 +34,7 @@
                 </select>
             </div>              
             <!-- Posivilidades dentro de la web -->
-            <a href="../eventos/eventos.php">Eventos</a>
+            <a href="../eventos/Eventos.php">Eventos</a>
             <a href="../lugares/Lugares.php">Lugares</a>
             <a href="../Cuenta/cuenta.php">Cuenta</a>  
             <a href="../Inicio/inicio.php">Inicio</a>      
